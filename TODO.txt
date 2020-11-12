@@ -1,0 +1,11 @@
+Todo
+
+-HTML síða
+-SCSS
+-Forsíða
+-Sækja gögn úr videos.json
+-Flokka video
+
+-Video síða
+-Virkni á videosíðu
+-Tengd myndbönd (related í json)
