@@ -1,0 +1,28 @@
+@import 'styles/config';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  background-color: $bg-color;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+a {
+  color: $color-1;
+  list-style: none;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  margin: 1rem 0;
+}

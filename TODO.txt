@@ -5,7 +5,9 @@ Todo
 -Forsíða
 -Sækja gögn úr videos.json
 -Flokka video
+-Date-fns á "Fyrir X klukkustundum síðan"
 
 -Video síða
 -Virkni á videosíðu
 -Tengd myndbönd (related í json)
+-búa til html?
