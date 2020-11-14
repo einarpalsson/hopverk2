@@ -11,3 +11,16 @@ Todo
 -Virkni á videosíðu
 -Tengd myndbönd (related í json)
 -búa til html?
+
+
+Einar
+-Loada inn videoum á réttum stað
+
+Dagbjört
+-Tímasetnigar og lengd myndbanda
+
+Birgitta
+-Birta video síðuna
+
+Gunnar
+-Takkar undir video
