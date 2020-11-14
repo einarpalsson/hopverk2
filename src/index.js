@@ -1,18 +1,19 @@
 import { load } from './lib/loadVideos';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  function showData(data) {
-    return data.forEach((content) => {
-      console.log('Þetta console log prentast')
+  function showData(videos) {
+    console.log('videos', videos)
+    videos.forEach((video) => {
+      console.log('Þetta console log prentast', video);
       const output = `
       <div class="col col-4">
         <div class="card">
-          <div class="mynd thumbnail>
-            <img src"${content.videos.poster}"
+          <div class="mynd thumbnail">
+            <img src="${video.poster}" />
           </div>
-          <div class"content">
-            <h3 class="card_title_${content.videos.id}">${content.videos.title}</h3>
-            <p class="date_${content.videos.id}">Ehv tímann</p>
+          <div class"video">
+            <h3 class="card_title_${video.id}">${video.title}</h3>
+            <p class="date_${video.id}">Ehv tímann</p>
           </div>
         </div>
       </div>
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else {
         res.json()
           .then((data) => {
+            console.log(data.videos);
             showData(data.videos);
           })
           .catch(() => {
