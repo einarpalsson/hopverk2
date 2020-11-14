@@ -1,0 +1,31 @@
+const videos = './videos.js';
+
+function makeHtml(data) {
+}
+
+export function load() {
+  fetch(`${videos}`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('None 200 status');
+      } else {
+        data.json()
+          .then((data) => {
+            makeHtml(data.videos);
+            console.log(data.videos)
+          })
+          .catch(() => {
+            const errorMessage = `<p>Óvænt villa</p>`;
+
+          })
+      }
+    })
+}
+
+------------------------------------------------------------
+
+import { load } from './lib/loadVideos'
+
+document.addEventListener('DOMContentLoaded', async () => {
+});
+
