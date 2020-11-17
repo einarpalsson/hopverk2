@@ -1,12 +1,16 @@
+import { formatTimeStamp } from './time';
+
 function showData(videos) {
   console.log('videos', videos)
   videos.forEach((video) => {
+    console.log(formatTimeStamp(video.duration));
     const vidID = parseInt(video.id);
     const output = `
     <div class="col col-4">
       <div class="card">
         <div class="mynd thumbnail">
           <img src="${video.poster}" />
+          <div id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}</div>
         </div>
         <div class="video">
           <a href="#"><h3 class="card_title_${video.id}">${video.title}</h3></a>

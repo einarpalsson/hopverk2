@@ -3,7 +3,7 @@ import {
 } from 'date-fns';
 import { videos } from '../../videos.json';
 
-function formatTimeStamp(duration) {
+export function formatTimeStamp(duration) {
   if (duration >= 3600) {
     const klst = duration / 3600;
     const klstNamundad = Math.floor(klst);
@@ -29,14 +29,15 @@ export function setVideoCreated() {
 
 }
 
-export function loadVideoJson() {
-  const fjoldiVideos = Object.keys(videos).length;
-  for (let i = 0; i < fjoldiVideos; i += 1) {
-    const video = videos[i];
-    const { id, created, duration } = video;
-    const durationVideoElement = document.getElementById(`duration_${id}`);
-    durationVideoElement.innerText = formatTimeStamp(duration);
-    const createdVideoElement = document.getElementById(`date_${id}`);
-    createdVideoElement.innerText = formatDistance(created, new Date());
-  }
-}
+
+// export function loadVideoJson() {
+//   const fjoldiVideos = Object.keys(videos).length;
+//   for (let i = 0; i < fjoldiVideos; i += 1) {
+//     const video = videos[i];
+//     const { id, created, duration } = video;
+//     const durationVideoElement = document.getElementById(`duration_${id}`);
+//     durationVideoElement.innerText = formatTimeStamp(duration);
+//     const createdVideoElement = document.getElementById(`date_${id}`);
+//     createdVideoElement.innerText = formatDistance(created, new Date());
+//   }
+// }
