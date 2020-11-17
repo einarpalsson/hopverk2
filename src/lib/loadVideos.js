@@ -1,10 +1,8 @@
 import { formatTimeStamp } from './time';
 
 function showData(videos) {
-  console.log('videos', videos)
   videos.forEach((video) => {
-    console.log(formatTimeStamp(video.duration));
-    const vidID = parseInt(video.id);
+    const vidID = parseInt(video.id, 10);
     const output = `
     <div class="col col-4">
       <div class="card">
@@ -32,19 +30,19 @@ function showData(videos) {
 }
 
 export function load() {
-  return fetch('./videos.json')
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error('None 200 status');
-    } else {
-      res.json()
-        .then((data) => {
-          console.log(data.videos);
-          showData(data.videos);
-        })
-        .catch(() => {
-          const errorMessage = '<p>Óvænt villa</p>';
-        });
-    }
-  });
+  fetch('./videos.json')
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('None 200 status');
+      } else {
+        res.json()
+          .then((data) => {
+            showData(data.videos);
+          })
+          .catch(() => {
+            const errorMessage = '<p>Óvænt villa</p>';
+            document.getElementById('nyleg').insertAdjacentHTML('afterbegin', errorMessage);
+          });
+      }
+    });
 }
