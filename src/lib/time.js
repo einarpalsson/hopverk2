@@ -29,6 +29,7 @@ export function setVideoCreated() {
 
 }
 
+
 // export function loadVideoJson() {
 //   const fjoldiVideos = Object.keys(videos).length;
 //   for (let i = 0; i < fjoldiVideos; i += 1) {
