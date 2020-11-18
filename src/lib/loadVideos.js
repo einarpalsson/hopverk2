@@ -7,7 +7,7 @@ function showData(videos) {
     <div class="col col-4">
       <div class="card">
         <div class="mynd thumbnail">
-          <a class="img-link" href="#">
+          <a class="img-link" href="./video.html?id=${video.id}">
             <img src="${video.poster}" />
           </a>
           <div id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}</div>
