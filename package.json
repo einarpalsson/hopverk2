@@ -11,7 +11,7 @@
     "test-fix": "eslint --fix --ext ./src/index.js.",
     "build": "rollup -c",
     "rollup-watch": "rollup -c -w",
-    "browser-sync": "browser-sync start --server --files index.html styles.css index.js",
+    "browser-sync": "browser-sync start --server --files index.html video.html styles.css index.js",
     "babel": "babel src --out-dir dist",
     "babel-watch": "babel src --out-dir dist --watch",
     "dev": "concurrently npm:browser-sync npm:rollup-watch npm:sass-watch"
