@@ -14,7 +14,7 @@ function showData(videos) {
         </div>
         <div class="video">
           <a href="#"><h3 class="card_title_${video.id}">${video.title}</h3></a>
-          <p class="date_$gi{video.id}">Ehv tímann</p>
+          <p class="date_${video.id}">Ehv tímann</p>
         </div>
       </div>
     </div>
