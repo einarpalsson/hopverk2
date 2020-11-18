@@ -1,4 +1,25 @@
 
+function createVideo(child) {
+  // get container
+  let container = document.querySelector('.video');
+  // title
+  let title = document.createElement('h1');
+  title.innerHTML = child.title;
+  // video
+  let video = document.createElement('video');
+  let videoSRC = document.createElement('source');
+  videoSRC.setAttribute('src', child.video);
+  videoSRC.setAttribute('type', 'video/mp4');
+  video.appendChild(videoSRC);
+  // description
+  let description = document.createElement('p');
+  description.innerHTML = child.description;
+  // append
+  container.appendChild(title);
+  container.appendChild(video);
+  container.appendChild(description);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const myURL = './videos.json';
@@ -12,6 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const data = await fetch(myURL);
     const myjson = await data.json();
 
+    /*
     // -- testing GET -- START
     // 1. create element
     let myElement = document.createElement('p');
@@ -22,28 +44,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 3. show element
     document.querySelector('main').appendChild(myElement);
     // -- testing GET -- END
+    */
 
     // -- create video (if possible) -- START
-    // 1. check if posssible
+    // check if posssible
     if(myjson && idparam) {
-      // 2. create element
-      let videoElement = document.createElement('p');
-      // 3. create checker for 'if found'
+      // create checker for 'if found'
       let mybool = false;
-      // 4. search for video
+      // search for video
       myjson.videos.forEach((child) => {
-        // 5. if video is found: set the title to element
+        // if video is found: create elements
         if(idparam == child.id) {
-          videoElement.innerHTML = child.title;
+          createVideo(child);
+          // createRelated(child.related);
           mybool = true;
         }
       });
-      // 6. if the video was not found: set the element to say that
+      // if the video was not found: set an element to say that
       if (!mybool) {
+        let videoElement = document.createElement('p');
         videoElement.innerHTML = 'Could not find video';
+        document.querySelector('.video').appendChild(videoElement);
       }
-      // 7. show element
-      document.querySelector('main').appendChild(videoElement);
     }
     // -- create video (if possible) -- END
 
