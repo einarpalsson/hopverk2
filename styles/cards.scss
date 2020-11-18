@@ -1,7 +1,12 @@
 @import 'styles/config';
 
-.mynd > img {
+a > img {
   height: 250px;
+  width: 100%;
+}
+
+.img-link{
+  display: inline-block;
   width: 100%;
 }
 
@@ -9,7 +14,7 @@
   margin: 1.5rem 0;
 }
 
-.content{
+.video {
   margin: 0.5rem 0;
 
   h3 {
@@ -19,4 +24,17 @@
   p {
     margin: 0.5rem 0;
   }
+}
+
+.duration {
+  position: relative;
+    margin-top: -45px;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 50px;
+    text-align: center;
+    height: 20px;
+    margin-bottom: 35px;
+    margin-left: 380px;
 }
