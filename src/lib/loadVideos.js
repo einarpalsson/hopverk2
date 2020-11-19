@@ -1,7 +1,7 @@
-import { formatTimeStamp } from './time';
+import { formatTimeStamp, formatCreated } from './time';
 
 function showData(videos) {
-  console.log('videos', videos)
+  console.log('videos', videos);
   videos.forEach((video) => {
     console.log(formatTimeStamp(video.duration));
     const vidID = parseInt(video.id);
@@ -14,7 +14,7 @@ function showData(videos) {
         </div>
         <div class="video">
           <a href="#"><h3 class="card_title_${video.id}">${video.title}</h3></a>
-          <p class="date_${video.id}">Ehv tímann</p>
+          <p class="date_${video.id}">${formatCreated(video.created)}</p>
         </div>
       </div>
     </div>
@@ -33,18 +33,18 @@ function showData(videos) {
 
 export function load() {
   return fetch('./videos.json')
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error('None 200 status');
-    } else {
-      res.json()
-        .then((data) => {
-          console.log(data.videos);
-          showData(data.videos);
-        })
-        .catch(() => {
-          const errorMessage = '<p>Óvænt villa</p>';
-        });
-    }
-  });
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('None 200 status');
+      } else {
+        res.json()
+          .then((data) => {
+            console.log(data.videos);
+            showData(data.videos);
+          })
+          .catch(() => {
+            const errorMessage = '<p>Óvænt villa</p>';
+          });
+      }
+    });
 }
