@@ -23,4 +23,4 @@ Birgitta
 -Birta video síðuna
 
 Gunnar
--Takkar undir video
+-Takkar undir video-test -test 2
