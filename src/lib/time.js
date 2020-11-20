@@ -1,5 +1,5 @@
 import {
-  format, addSeconds, parse, formatDuration, formatDistance,
+  format, addSeconds, parse, formatDuration, differenceInHours,
 } from 'date-fns';
 
 export function formatTimeStamp(duration) {
@@ -24,10 +24,40 @@ export function setDuration() {
 
 }
 
-export function setVideoCreated() {
+export function formatCreated(created) {
+  const buidTil = differenceInHours(new Date(), created);
+  const klstIAri = 8760;
+  const klstIManudi = 730;
+  const klstIViku = 168;
+  const klstIDegi = 24;
+  if (buidTil >= klstIAri) {
+    if (Math.floor(buidTil / klstIAri) === 1) {
+      return `Fyrir ${Math.floor(buidTil / klstIAri)} ári síðan`;
+    }
+    return `Fyrir ${Math.floor(buidTil / klstIAri)} árum síðan`;
+  }
+  if (buidTil >= klstIManudi) {
+    if (Math.floor(buidTil / klstIManudi) === 1) {
+      return `Fyrir ${Math.floor(buidTil / klstIManudi)} mánuði síðan`;
+    }
+    return `Fyrir ${Math.floor(buidTil / klstIManudi)} mánuðum síðan`;
+  }
 
+  if (buidTil >= klstIViku) {
+    if (Math.floor(buidTil / klstIViku) === 1) {
+      return `Fyrir ${Math.floor(buidTil / klstIViku)} viku síðan`;
+    }
+    return `Fyrir ${Math.floor(buidTil / klstIViku)} vikum síðan`;
+  }
+
+  if (buidTil >= klstIDegi) {
+    if (Math.floor(buidTil / klstIViku) === 1) {
+      return `Fyrir ${Math.floor(buidTil / klstIDegi)} degi síðan`;
+    }
+    return `Fyrir ${Math.floor(buidTil / klstIDegi)} dögum síðan`;
+  }
+  return buidTil;
 }
-
 
 // export function loadVideoJson() {
 //   const fjoldiVideos = Object.keys(videos).length;
