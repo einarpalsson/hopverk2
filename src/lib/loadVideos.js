@@ -1,4 +1,4 @@
-import { formatTimeStamp } from './time';
+import { formatTimeStamp, formatCreated } from './time';
 
 function showData(videos) {
   videos.forEach((video) => {
@@ -7,14 +7,14 @@ function showData(videos) {
     <div class="col col-4">
       <div class="card">
         <div class="mynd thumbnail">
-          <a class="img-link" href="#">
+          <a class="img-link" href="./video.html?id=${video.id}">
             <img src="${video.poster}" />
           </a>
           <div id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}</div>
         </div>
         <div class="video">
           <a href="#"><h3 class="card_title_${video.id}">${video.title}</h3></a>
-          <p class="date_$gi{video.id}">Ehv tímann</p>
+          <p class="date_${video.id}">${formatCreated(video.created)}</p>
         </div>
       </div>
     </div>
