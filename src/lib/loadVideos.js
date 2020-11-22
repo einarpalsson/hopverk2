@@ -10,7 +10,10 @@ function showData(videos) {
       <div class="card">
         <div class="mynd thumbnail">
           <img src="${video.poster}" />
-          <div id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}</div>
+          <div class="timestamp-container"> 
+          <p id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}
+          </p>
+          </div>
         </div>
         <div class="video">
           <a href="#"><h3 class="card_title_${video.id}">${video.title}</h3></a>
