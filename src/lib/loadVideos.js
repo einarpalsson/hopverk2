@@ -1,5 +1,6 @@
 import { formatTimeStamp, formatCreated } from './time';
 
+
 function showData(videos, categories) {
   categories.forEach((category) => {
     category.videos = category.videos.sort();
@@ -13,7 +14,9 @@ function showData(videos, categories) {
             <a class="img-link" href="./video.html?id=${video.id}">
               <img src="${video.poster}" />
             </a>
-            <div id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}</div>
+            <div class="timestamp-container"> 
+              <p id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}</p>
+            </div>
           </div>
           <div class="video">
             <a href="#"><h3 class="card_title_${video.id}">${video.title}</h3></a>

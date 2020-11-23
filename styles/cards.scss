@@ -26,14 +26,16 @@ a > img {
   }
 }
 
+.timestamp-container{
+ position: relative;
+    
+}
 .duration {
-  position: relative;
-    margin-top: -45px;
+  position: absolute;
     font-size: 1rem;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
-    max-width: 50px;
     text-align: center;
-    margin-bottom: 35px;
-    margin-left: 380px;
+    right: 15px;
+    bottom: 15px;
 }
