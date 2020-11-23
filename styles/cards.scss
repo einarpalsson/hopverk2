@@ -1,7 +1,12 @@
 @import 'styles/config';
 
-.mynd > img {
+a > img {
   height: 250px;
+  width: 100%;
+}
+
+.img-link{
+  display: inline-block;
   width: 100%;
 }
 
