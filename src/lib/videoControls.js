@@ -9,6 +9,8 @@ export function VideoControls() { // kallað í videoget.js
   const unmute = document.getElementById('unmute');
   const fullscreen = document.getElementById('fullscreen');
 
+  const overlay = document.getElementById('overlay');
+
 
   fullscreen.addEventListener('click', () => {
     if (video.requestFullscreen) video.requestFullscreen();
@@ -43,7 +45,7 @@ export function VideoControls() { // kallað í videoget.js
     }
   });
 
-  [playButton, pauseButton].forEach((el) => {
+  [playButton, pauseButton, video].forEach((el) => {
     el.addEventListener('click', () => {
       if (video.paused) {
         video.play();
@@ -51,15 +53,17 @@ export function VideoControls() { // kallað í videoget.js
         playButton.classList.add('play-btn');
         pauseButton.classList.add('pause-btn-visible');
         pauseButton.classList.remove('.pause-btn');
+        overlay.classList.remove('overlay');
+        overlay.classList.add('overlay-hidden');
       } else {
         video.pause();
         playButton.classList.add('play-btn-visible');
         playButton.classList.remove('play-btn');
         pauseButton.classList.add('pause-btn');
         pauseButton.classList.remove('pause-btn-visible');
+        overlay.classList.remove('overlay-hidden');
+        overlay.classList.add('overlay');
       }
     })
   })
-
-
 }
