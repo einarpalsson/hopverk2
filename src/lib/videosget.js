@@ -1,9 +1,10 @@
-import { VideoControls } from './videoControls';
+import { VideoControls } from './videoControls.js';
 
 export function createRelated(relatedVideos) {
   // this function is refrenced in
   // relatedVideos = 'related' from Json (this is an array with id's of videos)
 }
+
 
 // create buttons
 // export function createVideoHelper(container) {
@@ -33,25 +34,25 @@ export function createRelated(relatedVideos) {
 
 export function createVideo(child) {
   // get container
-  const container = document.querySelector('.video');
-  const decriptionContainer = document.querySelector('.description');
-  const titleContainer = document.querySelector('.title');
+  let container = document.querySelector('.video');
+  let decriptionContainer = document.querySelector('.description');
+  let titleContainer = document.querySelector('.title');
   // title
-  const title = document.createElement('h1');
+  let title = document.createElement('h1');
   title.innerHTML = child.title;
   // video
-  const videoContainer = document.createElement('div');
-  const video = document.createElement('video');
+  let videoContainer = document.createElement('div');
+  let video = document.createElement('video');
   // video src
-  const videoSRC = document.createElement('source');
+  let videoSRC = document.createElement('source');
   videoSRC.setAttribute('src', child.video);
   videoSRC.setAttribute('type', 'video/mp4');
   video.appendChild(videoSRC);
 
-  // videoContainer.appendChild(video);
+  //videoContainer.appendChild(video);
   // createVideoHelper(videoContainer);
   // description
-  const description = document.createElement('p');
+  let description = document.createElement('p');
   description.innerHTML = child.description;
   // append
   titleContainer.appendChild(title);
@@ -62,25 +63,25 @@ export function createVideo(child) {
 }
 
 export function notFound() {
-  const videoElement = document.createElement('p');
+  let videoElement = document.createElement('p');
   videoElement.innerHTML = 'Could not find video';
   document.querySelector('.video').appendChild(videoElement);
 }
 
 export async function VideoGet() {
-  try {
-    const myURL = './videos.json';
-    // get query
-    const params = (new URL(window.location)).searchParams;
+    try {
+      const myURL = './videos.json';
+      // get query
+      const params = (new URL(window.location)).searchParams;
 
-    // get query for 'id'
-    const idparam = params.get('id');
+      // get query for 'id'
+      const idparam = params.get('id');
 
-    // get json
-    const data = await fetch(myURL);
-    const myjson = await data.json();
+      // get json
+      const data = await fetch(myURL);
+      const myjson = await data.json();
 
-    /*
+      /*
       // -- testing GET -- START
       // 1. create element
       let myElement = document.createElement('p');
@@ -93,27 +94,33 @@ export async function VideoGet() {
       // -- testing GET -- END
       */
 
-    // -- create video (if possible) -- START
-    // check if posssible
-    if (myjson && idparam) {
-      // create checker for 'if found'
-      let mybool = false;
-      // search for video
-      myjson.videos.forEach((child) => {
-        // if video is found: create elements
-        if (idparam === child.id) {
-          createVideo(child);
-          createRelated(child.related);
-          mybool = true;
+      // -- create video (if possible) -- START
+      // check if posssible
+      if(myjson && idparam) {
+        // create checker for 'if found'
+        let mybool = false;
+        // search for video
+        myjson.videos.forEach((child) => {
+          // if video is found: create elements
+          if(idparam == child.id) {
+            createVideo(child);
+            createRelated(child.related);
+            mybool = true;
+          }
+        });
+        // if the video was not found: set an element to say that
+        if (!mybool) {
+          notFound();
         }
-      });
-      // if the video was not found: set an element to say that
-      if (!mybool) {
-        notFound();
       }
+      // -- create video (if possible) -- END
+
+    } catch (e) {
+      console.log(e);
+      notFound();
     }
-    // -- create video (if possible) -- END
-  } catch (e) {
-    notFound();
-  }
+
+
 }
+
+

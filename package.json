@@ -7,7 +7,7 @@
     "sass": "node-sass --source-map-embed styles.scss styles.css",
     "sass-watch": "node-sass --source-map-embed --watch styles.scss --recursive styles.css",
     "lint": "stylelint styles.scss ./**/*.scss",
-    "test": "eslint *.js ./src/*/**",
+    "test": "eslint *.js ./src/index.js ./src/lib/map.js ./src/lib/earthquakes.js",
     "test-fix": "eslint --fix --ext ./src/index.js.",
     "build": "rollup -c",
     "rollup-watch": "rollup -c -w",
@@ -45,7 +45,6 @@
     "stylelint-config-standard": "^20.0.0"
   },
   "dependencies": {
-    "date-fns": "^2.16.1",
     "rollup-plugin-terser": "^7.0.2"
   }
 }
