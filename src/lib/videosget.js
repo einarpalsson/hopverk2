@@ -1,38 +1,42 @@
 import { VideoControls } from './videoControls.js';
 
 export function createRelated(relatedVideos) {
-  // this function is refrenced in 
+  // this function is refrenced in
   // relatedVideos = 'related' from Json (this is an array with id's of videos)
 }
-// create buttons
-export function createVideoHelper(container) {
-  const typeOfElement = 'button';
 
-  // back
-  let back = document.createElement(typeOfElement);
-  back.setAttribute('class', 'back');
-  container.appendChild(back);
-  // play
-  let play = document.createElement(typeOfElement);
-  play.setAttribute('class', 'play');
-  container.appendChild(play);
-  // sound
-  let sound = document.createElement(typeOfElement);
-  sound.setAttribute('class', 'sound');
-  container.appendChild(sound);
-  // fullscreen
-  let fullscreen = document.createElement(typeOfElement);
-  fullscreen.setAttribute('class', 'fullscreen');
-  container.appendChild(fullscreen);
-  // forward
-  let forward = document.createElement(typeOfElement);
-  forward.setAttribute('class', 'forward');
-  container.appendChild(forward);
-}
+
+// create buttons
+// export function createVideoHelper(container) {
+//   const typeOfElement = 'button';
+
+//   // back
+//   let back = document.createElement(typeOfElement);
+//   back.setAttribute('class', 'back');
+//   container.appendChild(back);
+//   // play
+//   let play = document.createElement(typeOfElement);
+//   play.setAttribute('class', 'play');
+//   container.appendChild(play);
+//   // sound
+//   let sound = document.createElement(typeOfElement);
+//   sound.setAttribute('class', 'sound');
+//   container.appendChild(sound);
+//   // fullscreen
+//   let fullscreen = document.createElement(typeOfElement);
+//   fullscreen.setAttribute('class', 'fullscreen');
+//   container.appendChild(fullscreen);
+//   // forward
+//   let forward = document.createElement(typeOfElement);
+//   forward.setAttribute('class', 'forward');
+//   container.appendChild(forward);
+// }
 
 export function createVideo(child) {
   // get container
   let container = document.querySelector('.video');
+  let decriptionContainer = document.querySelector('.description');
+  let titleContainer = document.querySelector('.title');
   // title
   let title = document.createElement('h1');
   title.innerHTML = child.title;
@@ -46,15 +50,15 @@ export function createVideo(child) {
   video.appendChild(videoSRC);
 
   //videoContainer.appendChild(video);
-  createVideoHelper(videoContainer);
+  // createVideoHelper(videoContainer);
   // description
   let description = document.createElement('p');
   description.innerHTML = child.description;
   // append
-  container.appendChild(title);
+  titleContainer.appendChild(title);
   container.appendChild(video);
   container.appendChild(videoContainer);
-  container.appendChild(description);
+  decriptionContainer.appendChild(description);
   VideoControls();
 }
 

@@ -17,10 +17,36 @@ video {
   cursor: pointer;
 }
 
-.pause {
+.play-btn {
   display: none;
 }
 
-// .play {
-//   display: none;
-// }
+.play-btn-visible {
+  display: block;
+}
+
+
+.pause-btn {
+  display: none;
+}
+
+.pause-btn-visible {
+  display: block;
+}
+
+.mute-btn {
+  display: none;
+}
+
+.mute-btn-visible {
+  display: block;
+}
+
+.unmute-btn {
+  display: none;
+}
+
+.unmute-btn-visible {
+  display: block;
+}
+
