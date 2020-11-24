@@ -1,5 +1,5 @@
 import {
-  format, addSeconds, parse, formatDuration, differenceInHours,
+  format, addSeconds, differenceInHours,
 } from 'date-fns';
 
 export function formatTimeStamp(duration) {
