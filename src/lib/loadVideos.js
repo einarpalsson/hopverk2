@@ -14,7 +14,7 @@ function showData(videos, categories) {
             <a class="img-link" href="./video.html?id=${video.id}">
               <img src="${video.poster}" />
             </a>
-            <div class="timestamp-container"> 
+            <div class="timestamp-container">
               <p id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}</p>
             </div>
           </div>

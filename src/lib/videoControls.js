@@ -1,11 +1,16 @@
 
 export function VideoControls() { // kallað í videoget.js
   const video = document.querySelector('video');
-  const button = document.querySelector('.play');
-  const backward = document.querySelector('.back');
-  const forward = document.querySelector('.forward');
-  const sound = document.querySelector('.sound');
-  const fullscreen = document.querySelector('.fullscreen');
+  const playButton = document.getElementById('play');
+  const pauseButton = document.getElementById('pause');
+  const backward = document.getElementById('back');
+  const forward = document.getElementById('forward');
+  const mute = document.getElementById('mute');
+  const unmute = document.getElementById('unmute');
+  const fullscreen = document.getElementById('fullscreen');
+
+  const overlay = document.getElementById('overlay');
+
 
   fullscreen.addEventListener('click', () => {
     if (video.requestFullscreen) video.requestFullscreen();
@@ -22,28 +27,43 @@ export function VideoControls() { // kallað í videoget.js
     video.currentTime += 3;
   });
 
-  sound.addEventListener('click', () => {
-    if (video.muted) {
-      video.muted=false;
-      sound.removeChild(sound.firstChild);
-      sound.appendChild(document.createTextNode('Sound'));
-    } else {
+  mute.addEventListener('click', () => {
+    if (!video.muted) {
       video.muted=true;
-      sound.removeChild(sound.firstChild);
-      sound.appendChild(document.createTextNode('Sound Muted'));
+      mute.classList.remove('mute-btn-visible');
+      mute.classList.add('mute-btn');
+      unmute.classList.add('unmute-btn-visible');
+      unmute.classList.remove('unmute-btn');
+
+      unmute.addEventListener('click', () => {
+        video.muted=false;
+        unmute.classList.remove('unmute-btn-visible');
+        unmute.classList.add('unmute-btn');
+        mute.classList.remove('mute-btn');
+        mute.classList.add('mute-btn-visible');
+      })
     }
   });
 
-  button.addEventListener('click', () => {
-    if (video.paused) {
-      video.play();
-      button.removeChild(button.firstChild);
-      button.appendChild(document.createTextNode('Pause'));
-    } else {
-      video.pause();
-      button.removeChild(button.firstChild);
-      button.appendChild(document.createTextNode('Play'));
-    }
-  });
-
+  [playButton, pauseButton, video].forEach((el) => {
+    el.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playButton.classList.remove('play-btn-visible');
+        playButton.classList.add('play-btn');
+        pauseButton.classList.add('pause-btn-visible');
+        pauseButton.classList.remove('.pause-btn');
+        overlay.classList.remove('overlay');
+        overlay.classList.add('overlay-hidden');
+      } else {
+        video.pause();
+        playButton.classList.add('play-btn-visible');
+        playButton.classList.remove('play-btn');
+        pauseButton.classList.add('pause-btn');
+        pauseButton.classList.remove('pause-btn-visible');
+        overlay.classList.remove('overlay-hidden');
+        overlay.classList.add('overlay');
+      }
+    })
+  })
 }

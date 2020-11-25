@@ -2,6 +2,7 @@
 
 video {
   width: 100%;
+  cursor: pointer;
 }
 
 .buttons {
@@ -12,15 +13,56 @@ video {
 
 .button-imgs {
   margin: 0 0.5rem;
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   cursor: pointer;
 }
 
-.pause {
+.play-btn {
   display: none;
 }
 
-// .play {
-//   display: none;
-// }
+.play-btn-visible {
+  display: block;
+}
+
+
+.pause-btn {
+  display: none;
+}
+
+.pause-btn-visible {
+  display: block;
+}
+
+.mute-btn {
+  display: none;
+}
+
+.mute-btn-visible {
+  display: block;
+}
+
+.unmute-btn {
+  display: none;
+}
+
+.unmute-btn-visible {
+  display: block;
+}
+
+
+.video {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  height: 50px;
+  top: 46.5%;
+  width: 100%;
+}
+
+.overlay-hidden {
+  display: none;
+}
