@@ -1,5 +1,5 @@
 
-export function VideoControls() { // kallað í videoget.js
+export function VideoControls() {
   const video = document.querySelector('video');
   const playButton = document.getElementById('play');
   const pauseButton = document.getElementById('pause');

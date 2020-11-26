@@ -2,7 +2,7 @@ import { formatTimeStamp, formatCreated } from './time';
 
 export function createHtml(videoInfo) {
   return `
-      <div class="col col-4">
+      <div class="col col-4 col-md-6 col-sm-12">
         <div class="card">
           <div class="mynd thumbnail">
             <a class="img-link" href="./video.html?id=${videoInfo.id}">

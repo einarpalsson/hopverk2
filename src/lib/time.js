@@ -1,5 +1,5 @@
 import {
-  format, addSeconds, parse, formatDuration, differenceInHours,
+  format, addSeconds, differenceInHours,
 } from 'date-fns';
 
 export function formatTimeStamp(duration) {
@@ -58,15 +58,3 @@ export function formatCreated(created) {
   }
   return buidTil;
 }
-
-// export function loadVideoJson() {
-//   const fjoldiVideos = Object.keys(videos).length;
-//   for (let i = 0; i < fjoldiVideos; i += 1) {
-//     const video = videos[i];
-//     const { id, created, duration } = video;
-//     const durationVideoElement = document.getElementById(`duration_${id}`);
-//     durationVideoElement.innerText = formatTimeStamp(duration);
-//     const createdVideoElement = document.getElementById(`date_${id}`);
-//     createdVideoElement.innerText = formatDistance(created, new Date());
-//   }
-// }
