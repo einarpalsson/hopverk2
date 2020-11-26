@@ -1,8 +1,8 @@
 @import 'styles/config';
 
 video {
-  width: 100%;
   cursor: pointer;
+  width: 100%;
 }
 
 .buttons {
@@ -13,14 +13,14 @@ video {
 }
 
 .description {
-  margin: 1rem 0;;
+  margin: 1rem 0;
 }
 
 .button-imgs {
-  margin: 0 0.5rem;
-  height: 50px;
-  width: 50px;
   cursor: pointer;
+  height: 50px;
+  margin: 0 0.5rem;
+  width: 50px;
 }
 
 .play-btn {
@@ -30,7 +30,6 @@ video {
 .play-btn-visible {
   display: block;
 }
-
 
 .pause-btn {
   display: none;
@@ -56,14 +55,13 @@ video {
   display: block;
 }
 
-
 .video {
   position: relative;
 }
 
 .overlay {
-  position: absolute;
   height: 50px;
+  position: absolute;
   top: 46.5%;
   width: 100%;
 }

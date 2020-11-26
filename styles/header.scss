@@ -1,9 +1,9 @@
 @import 'styles/config';
 
 header {
+  margin-bottom: 1rem;
   text-align: center;
   vertical-align: middle;
-  margin-bottom: 1rem;
 
   h1 {
     font-size: 3rem;
@@ -14,7 +14,3 @@ header {
 .title {
   overflow-wrap: break-word;
 }
-
-
-
-

@@ -5,7 +5,7 @@ a > img {
   width: 100%;
 }
 
-.img-link{
+.img-link {
   display: inline-block;
   width: 100%;
 }
@@ -26,16 +26,16 @@ a > img {
   }
 }
 
-.timestamp-container{
- position: relative;
-    
+.timestamp-container {
+  position: relative;
 }
+
 .duration {
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 15px;
+  color: #eee;
+  font-size: 1rem;
   position: absolute;
-    font-size: 1rem;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    text-align: center;
-    right: 15px;
-    bottom: 15px;
+  right: 15px;
+  text-align: center;
 }
