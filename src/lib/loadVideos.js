@@ -1,30 +1,32 @@
 import { formatTimeStamp, formatCreated } from './time';
 
+export function createHtml(videoInfo) {
+  return `
+      <div class="col col-4">
+        <div class="card">
+          <div class="mynd thumbnail">
+            <a class="img-link" href="./video.html?id=${videoInfo.id}">
+              <img src="${videoInfo.poster}" />
+            </a>
+            <div class="timestamp-container">
+              <p id="duration_${videoInfo.id}" class="duration">${formatTimeStamp(videoInfo.duration)}</p>
+            </div>
+          </div>
+          <div class="video">
+            <a href="#"><h3 class="card_title_${videoInfo.id}">${videoInfo.title}</h3></a>
+            <p class="date_${videoInfo.id}">${formatCreated(videoInfo.created)}</p>
+          </div>
+        </div>
+      </div>
+      `;
+}
 
-function showData(videos, categories) {
+export function showData(videos, categories) {
   categories.forEach((category) => {
     category.videos = category.videos.sort();
 
     category.videos.forEach((videoID) => {
       const video = videos.filter(video => video.id === videoID)[0];
-      const createCard = `
-      <div class="col col-4">
-        <div class="card">
-          <div class="mynd thumbnail">
-            <a class="img-link" href="./video.html?id=${video.id}">
-              <img src="${video.poster}" />
-            </a>
-            <div class="timestamp-container">
-              <p id="duration_${video.id}" class="duration">${formatTimeStamp(video.duration)}</p>
-            </div>
-          </div>
-          <div class="video">
-            <a href="#"><h3 class="card_title_${video.id}">${video.title}</h3></a>
-            <p class="date_${video.id}">${formatCreated(video.created)}</p>
-          </div>
-        </div>
-      </div>
-      `;
 
       let elementID;
       if (category.title === 'Nýleg myndbönd') {
@@ -36,7 +38,7 @@ function showData(videos, categories) {
       }
 
       if (category.videos.includes(videoID)) {
-        document.getElementById(elementID).insertAdjacentHTML('beforeend', createCard);
+        document.getElementById(elementID).insertAdjacentHTML('beforeend', createHtml(video));
       }
     })
   })

@@ -1,9 +1,5 @@
 import { VideoControls } from './videoControls.js';
-
-export function createRelated(relatedVideos) {
-  // this function is refrenced in
-  // relatedVideos = 'related' from Json (this is an array with id's of videos)
-}
+import { createHtml } from './loadVideos';
 
 
 // create buttons
@@ -32,7 +28,8 @@ export function createRelated(relatedVideos) {
 //   container.appendChild(forward);
 // }
 
-export function createVideo(child) {
+export function createVideo(child, videos) {
+  console.log(child);
   // get container
   let container = document.querySelector('.video');
   let decriptionContainer = document.querySelector('.description');
@@ -54,6 +51,17 @@ export function createVideo(child) {
   // description
   let description = document.createElement('p');
   description.innerHTML = child.description;
+
+
+  child.related = child.related.sort();
+  child.related.forEach((relatedVid) => {
+    const video = videos.filter(video => video.id === relatedVid)[0];
+    if (child.related.includes(relatedVid)) {
+      document.getElementById('related').insertAdjacentHTML('beforeend', createHtml(video));
+    }
+  })
+
+
   // append
   titleContainer.appendChild(title);
   container.appendChild(video);
@@ -103,8 +111,7 @@ export async function VideoGet() {
         myjson.videos.forEach((child) => {
           // if video is found: create elements
           if(idparam == child.id) {
-            createVideo(child);
-            createRelated(child.related);
+            createVideo(child, myjson.videos);
             mybool = true;
           }
         });
