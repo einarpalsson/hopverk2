@@ -1,6 +1,5 @@
 import { formatTimeStamp, formatCreated } from './time';
 
-
 function createHeadlines(category) {
   const headline = `<h2 class="headline">${category.title}</h2>`;
 
