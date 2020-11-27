@@ -1,5 +1,21 @@
 import { formatTimeStamp, formatCreated } from './time';
 
+
+function createHeadlines(category) {
+  const headline = `<h2 class="headline">${category.title}</h2>`;
+
+  let elID;
+  if (category.title === 'Nýleg myndbönd') {
+    elID = 'newVids';
+  } else if (category.title === 'Kennslumyndbönd'){
+    elID = 'teachVids';
+  } else if (category.title === 'Skemmtimyndbönd'){
+    elID = 'funVids';
+  }
+
+  document.getElementById(elID).insertAdjacentHTML('beforeend', headline);
+}
+
 export function createHtml(videoInfo) {
   return `
       <div class="col col-4 col-md-6 col-sm-12">
@@ -24,6 +40,8 @@ export function createHtml(videoInfo) {
 export function showData(videos, categories) {
   categories.forEach((category) => {
     category.videos = category.videos.sort();
+
+    createHeadlines(category);
 
     category.videos.forEach((videoID) => {
       const video = videos.filter(video => video.id === videoID)[0];
